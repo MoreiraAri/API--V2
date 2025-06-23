@@ -1,9 +1,9 @@
 package com.api.demo;
 // src/test/java/com/example/authserver/AuthIntegrationTests.java
 
-import com.api.demo.repository.UserRepository;
-import com.api.demo.service.AuthService;
-import com.api. demo.service.JwtService;
+import com.api.avaliacao.repository.UserRepository;
+import com.api.avaliacao.service.AuthService;
+import com.api.avaliacao.service.JwtService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,14 +46,14 @@ class AuthIntegrationTests {
         userRepository.findByUsername("admin").ifPresentOrElse(
                 user -> { /* Já existe */ },
                 () -> {
-                    com.api.demo.model.User admin = new com.api.demo.model.User(null, "admin", passwordEncoder.encode("123456"), "ADMIN");
+                    com.api.avaliacao.model.User admin = new com.api.avaliacao.model.User(null, "admin", passwordEncoder.encode("123456"), "ADMIN");
                     userRepository.save(admin);
                 }
         );
         userRepository.findByUsername("user").ifPresentOrElse(
                 user -> { /* Já existe */ },
                 () -> {
-                    com.api.demo.model.User regularUser = new com.api.demo.model.User(null, "user", passwordEncoder.encode("password"), "USER");
+                    com.api.avaliacao.model.User regularUser = new com.api.avaliacao.model.User(null, "user", passwordEncoder.encode("password"), "USER");
                     userRepository.save(regularUser);
                 }
         );

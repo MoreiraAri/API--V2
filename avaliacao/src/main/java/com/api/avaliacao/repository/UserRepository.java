@@ -1,7 +1,7 @@
 // src/main/java/com/example/authserver/repository/UserRepository.java
-package com.api.demo.repository;
+package com.api.avaliacao.repository;
 
-import com.api.demo.model.User;
+import com.api.avaliacao.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

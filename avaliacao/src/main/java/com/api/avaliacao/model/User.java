@@ -1,5 +1,5 @@
-// src/main/java/com/api/demo/model/User.java
-package com.api.demo.model;
+// src/main/java/com/api/avaliacao/model/User.java
+package com.api.avaliacao.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,5 +1,5 @@
 // src/main/java/com/example/authserver/service/JwtService.java
-package com.api.demo.service;
+package com.api.avaliacao.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

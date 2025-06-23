@@ -1,5 +1,5 @@
 // src/main/java/com/example/authserver/controller/TestProtectedController.java
-package com.api.demo.controller;
+package com.api.avaliacao.controller;
 
 
 import org.springframework.security.access.prepost.PreAuthorize;

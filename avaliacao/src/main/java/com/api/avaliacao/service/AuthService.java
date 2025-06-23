@@ -1,8 +1,8 @@
 // src/main/java/com/example/authserver/service/AuthService.java
-package com.api.demo.service;
+package com.api.avaliacao.service;
 
-import com.api.demo.model.User;
-import com.api.demo.repository.UserRepository;
+import com.api.avaliacao.model.User;
+import com.api.avaliacao.repository.UserRepository;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
