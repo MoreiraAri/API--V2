@@ -7,40 +7,45 @@ server:
 # 🗄️ Configurações do Banco de Dados H2
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE # H2 em memória, não fecha o banco. Útil para desenvolvimento.
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE # Banco em memória, não fecha após uso
     driver-class-name: org.h2.Driver
     username: sa
-    password:
+    password: 
   h2:
     console:
-      enabled: true # Habilita o console do H2
-      path: /h2-console # Acesse em http://localhost:8080/h2-console
+      enabled: true        # Habilita o console do H2 para acesso via browser
+      path: /h2-console    # URL para acessar o console do H2
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update # Cria/atualiza o schema do DB automaticamente. **NÃO USE EM PRODUÇÃO!**
-    show-sql: true # Exibe as queries SQL no console (ótimo para depuração)
+      ddl-auto: update     # Atualiza automaticamente o schema do banco (NÃO usar em produção)
+    show-sql: true         # Exibe as queries SQL no console para debug
     properties:
       hibernate:
-        format_sql: true # Formata o SQL para melhor legibilidade no console
+        format_sql: true   # Formata o SQL exibido para melhor legibilidade
 
-# 🛠️ Spring DevTools: Otimizando o Desenvolvimento
   devtools:
     restart:
-      enabled: true # Reinicia a app automaticamente ao detectar mudanças no código
+      enabled: true        # Reinicia automaticamente a aplicação ao detectar mudanças
     livereload:
-      enabled: true # Habilita o LiveReload (requer extensão no navegador)
+      enabled: true        # Ativa LiveReload (necessita extensão no navegador)
 
-# 🔒 Configurações JWT para Geração e Validação Interna
-# IMPORTANTE: EM PRODUÇÃO, A CHAVE SECRETA DEVE SER UMA VARIÁVEL DE AMBIENTE OU GERENCIADA POR UM SERVIÇO DE SECRETS!
+# 🔒 Configurações JWT para geração e validação de tokens
 jwt:
-  secret: umaChaveSecretaMuitoLongaEComplexaParaAssinarTokensJWT # Use uma string longa, aleatória e segura (mínimo de 32 caracteres para HMAC256).
-  expiration: 3600000 # Tempo de expiração do token em milissegundos (aqui: 1 hora)
+  secret: umaChaveSecretaMuitoLongaEComplexaParaAssinarTokensJWT
+  expiration: 3600000    # Expiração do token em milissegundos (1 hora)
 
-# 📚 Springdoc OpenAPI (Swagger): Documentação da API
+# 📚 Configuração do Springdoc OpenAPI para documentação Swagger
 springdoc:
   swagger-ui:
-    path: /swagger-ui.html # Caminho para a interface do Swagger UI
-    disable-swagger-default-url: true # Evita carregar a URL padrão do Swagger (Petstore)
+    path: /swagger-ui.html
+    disable-swagger-default-url: true # Desabilita a URL default para evitar página Petstore
   api-docs:
-    path: /v3/api-docs # Caminho para os arquivos de definição da API (JSON/YAML)
+    path: /v3/api-docs
+
+# ⚠️ Segurança: Caso precise liberar frame options para H2 console (gerenciado via SecurityConfig)
+# spring:
+#   security:
+#     headers:
+#       frame-options: sameorigin
+
