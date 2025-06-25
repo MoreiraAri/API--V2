@@ -43,6 +43,21 @@ springdoc:
   api-docs:
     path: /v3/api-docs
 
+    # 📊 Configuração do Actuator e Prometheus
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+
 # ⚠️ Segurança: Caso precise liberar frame options para H2 console (gerenciado via SecurityConfig)
 # spring:
 #   security:
